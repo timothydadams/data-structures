@@ -1,0 +1,67 @@
+Notes in re data structures sprint:
+
+1) functional
+Inside each function, change "someInstance" to "storage".
+Is this what Zach A meant by "closure"?
+
+PK tell TA: I finally realize why we don't need to think of queue as going left or right.
+
+Stubs (for stacks)s:
+
+2) functional-shared:
+
+var Stack = function() {
+  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+  // but try not not reference your old code in writing the new style.
+};
+var stackMethods = {};
+
+3) prototypal
+
+var Stack = function() {
+  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+  // but try not not reference your old code in writing the new style.
+};
+var stackMethods = {};
+
+4) pseudoclassical
+
+var Stack = function() {
+  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+  // but try not not reference your old code in writing the new style.
+};
+
+5) ES6 (using "class")
+
+class Stack {
+  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+  // but try not not reference your old code in writing the new style.
+  constructor() {
+  }
+}
+
+
+var Stack = function() {
+  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+  // but try not not reference your old code in writing the new style.
+  var thisStack = {};
+  thisStack.list = {};
+  _.extend(thisStack, Stack.stackMethods);
+  return thisStack;
+};
+Stack.stackMethods = {};
+Stack.stackMethods.push = function(value) {
+  console.log(this.list);
+  this.list[(Object.keys(this.list).length + 1 ).toString()] = value;
+};
+Stack.stackMethods.pop = function() {
+  if (Object.keys(this.list).length === 0) {
+    return 0;
+  }
+  let currentValue = this.list[(Object.keys(this.list).length)].toString();
+  delete this.list[(Object.keys(this.list).length)];
+  return currentValue;
+};
+Stack.stackMethods.size = function() {
+  return Object.keys(this.list).length;
+};
