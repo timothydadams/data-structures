@@ -10,12 +10,13 @@ var Stack = function() {
     // if (someInstance === {}) {
     //   var index = 0;
     // }
-    var index = -1;
-    for (var key in someInstance) {
-      index = (someInstance[key] > index) ? someInstance[key] : index;
+    var maxIndex = -1;
+    for (var key in storage) {
+      maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
     }
-    someInstance[index] = value;
-    return someInstance;
+    maxIndex++;
+    storage[maxIndex] = value;
+    return storage;
   };
 
   someInstance.pop = function() {
@@ -23,7 +24,7 @@ var Stack = function() {
 
   someInstance.size = function() {
     var count = 0;
-    for (var key in someInstance) {
+    for (var key in storage) {
       if (Number(key)) {
         count ++;
       }
