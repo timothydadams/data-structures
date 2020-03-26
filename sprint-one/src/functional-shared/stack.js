@@ -3,10 +3,9 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   var newStack = {};
   extend(newStack, stackMethods);
+  newStack.storage = {};
   return newStack;
 };
-
-
 
 var extend = function (to, from) {
   for (var key in from) {
@@ -14,39 +13,34 @@ var extend = function (to, from) {
   }
 };
 
-
 var stackMethods = {};
 
 stackMethods.push = function(value) {
-//find the maxIndex
-var maxIndex = -1;
-//iterate over Stack
-console.log(this);
-for (var key in this) {
-  maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
-}
-maxIndex++;
-this.maxIndex = value;
+  //find the maxIndex
+  var maxIndex = -1;
+  //iterate over Stack
+  for (var key in this.storage) {
+    maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
+  }
+  maxIndex++;
+  this.storage[maxIndex] = value;
 }
 
 stackMethods.pop = function() {
-var minIndex = Infinity;
-for (var key in this) {
-  minIndex = (Number(key) < minIndex) ? Number(key) : minIndex;
-}
-var value = this.minIndex;
-delete this.minIndex;
-return value;
+  var maxIndex = -1;
+  console.log(this);
+  for (var key in this.storage) {
+    maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
+  }
+  var value = this.storage[maxIndex];
+  delete this.storage[maxIndex];
+  return value;
 }
 
 stackMethods.size = function() {
-var count = 0;
-for (var key in this) {
-  //console.log(key);
-  if (Number.parseInt(key) >= 0) {
-
+  var count = 0;
+  for (var key in this.storage) {
     count++;
   }
-}
-return count;
+  return count;
 }
