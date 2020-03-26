@@ -18,7 +18,7 @@ stackMethods.push = function(value) {
 
 stackMethods.pop = function() {
   var maxIndex = -1;
-  console.log(this);
+  //console.log(this);
   for (var key in this.storage) {
     maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
   }
