@@ -1,0 +1,192 @@
+Comparison of our submission for class repo for data-structures 1
+
+
+var Stack = function() {
+  var someInstance = {};
+
+  // Use an object with numeric keys to store values
+  var storage = {};
+
+  // Implement the methods below
+  someInstance.push = function(value) {
+    var maxIndex = -1;
+    for (var key in storage) {
+      maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
+    }
+    maxIndex++;
+    storage[maxIndex] = value;
+    //return storage;
+  };
+
+  someInstance.pop = function() {
+    var maxIndex = -1;
+    for (var key in storage) {
+      maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
+    }
+    var value = storage[maxIndex];
+    delete storage[maxIndex];
+    return value;
+  };
+
+  someInstance.size = function() {
+    var count = 0;
+    for (var key in storage) {
+      count ++;
+    }
+    return count;
+  };
+
+  return someInstance;
+};
+
+var Queue = function() {
+  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+  // but try not not reference your old code in writing the new style.
+  var newQueue = {}
+  extend(newQueue, queueMethods);
+  newQueue.storage = {};
+  return newQueue;
+
+};
+
+var extend = function (to, from) {
+  for (var key in from) {
+    to[key] = from[key];
+  }
+};
+
+var queueMethods = {};
+
+queueMethods.enqueue = function(value) {
+  //find the maxIndex
+  var maxIndex = -1;
+  //iterate over Stack
+  for (var key in this.storage) {
+    maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
+  }
+  maxIndex++;
+  this.storage[maxIndex] = value;
+}
+
+queueMethods.dequeue = function() {
+  var minIndex = Infinity; // and beyond
+  for (var key in this.storage) {
+    minIndex = (Number(key) < minIndex) ? Number(key) : minIndex;
+  }
+  var value = this.storage[minIndex];
+  delete this.storage[minIndex];
+  return value;
+}
+
+queueMethods.size = function() {
+  var count = 0;
+  for (var key in this.storage) {
+    count++;
+  }
+  return count;
+}
+
+
+var Stack = function() {
+  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+  // but try not not reference your old code in writing the new style.
+  var newStack = Object.create(stackMethods);
+  newStack.storage = {};
+  return newStack;
+};
+
+var stackMethods = {};
+
+stackMethods.push = function(value) {
+  var maxIndex = -1;
+  for (var key in this.storage) {
+    maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
+  }
+  this.storage[maxIndex + 1] = value;
+}
+
+stackMethods.pop = function() {
+  var maxIndex = -1;
+  //console.log(this);
+  for (var key in this.storage) {
+    maxIndex = (Number(key) > maxIndex) ? Number(key) : maxIndex;
+  }
+  var value = this.storage[maxIndex];
+  delete this.storage[maxIndex];
+  return value;
+}
+
+stackMethods.size = function() {
+  var count = 0;
+  for (var key in this.storage) {
+    count++;
+  }
+  return count;
+}
+
+
+var Queue = function() {
+  this.storage = {};
+};
+
+Queue.prototype.enqueue = function(value) {
+  var max = -1;
+  for (var key in this.storage) {
+    max = (Number(key) > max) ? Number(key) : max;
+  }
+  this.storage[max + 1] = value;
+}
+
+Queue.prototype.dequeue = function () {
+  var min = Infinity; // ... and beyond
+  for (var key in this.storage) {
+    min = (Number(key) < min) ? Number(key) : min;
+  }
+  var value = this.storage[min];
+  delete this.storage[min];
+  return value;
+}
+
+Queue.prototype.size = function () {
+  var count = 0;
+  for (var key in this.storage) {
+    count ++;
+  }
+  return count;
+}
+
+class Stack {
+  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
+  // but try not not reference your old code in writing the new style.
+  constructor() {
+    this.storage = {};
+  }
+
+  //methods below
+  push(value) {
+    var max = -1;
+    for (var key in this.storage) {
+      max = (Number(key) > max) ? Number(key) : max;
+    }
+    this.storage[max + 1] = value;
+  }
+
+  pop() {
+    var max = -1;
+    for (var key in this.storage) {
+      max = (Number(key) < max) ? max : Number(key);
+    }
+    var value = this.storage[max];
+    delete this.storage[max];
+    return value;
+  }
+
+  size() {
+    var count = 0;
+    for (var key in this.storage) {
+      count ++;
+    }
+    return count;
+  }
+
+}

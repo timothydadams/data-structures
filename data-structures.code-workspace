@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "sprint-one/spec"
+		},
+		{
+			"path": "sprint-two"
 		}
 	]
 }
