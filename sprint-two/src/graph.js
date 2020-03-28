@@ -19,7 +19,6 @@ Graph.prototype.contains = function(node) {
 };
 
 // Removes a node from the graph.
-// We may also need to remove zero or more edges, if this does not occur automatically.
 Graph.prototype.removeNode = function(node) {
   for(let otherNode in this.storage){
     if(node.toString() !== otherNode){
