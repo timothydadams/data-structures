@@ -22,10 +22,10 @@ Graph.prototype.contains = function(node) {
 // We may also need to remove zero or more edges, if this does not occur automatically.
 Graph.prototype.removeNode = function(node) {
   for(let otherNode in this.storage){
-    //if(node != otherNode){
+    if(node.toString() !== otherNode){
       delete this.edges[node][otherNode];
       delete this.edges[otherNode][node];
-    //}
+    }
   }
   delete this.storage[node];
 };
