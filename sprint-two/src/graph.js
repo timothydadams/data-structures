@@ -22,15 +22,17 @@ Graph.prototype.contains = function(node) {
 // We may also need to remove zero or more edges, if this does not occur automatically.
 Graph.prototype.removeNode = function(node) {
   for(let otherNode in this.storage){
-    delete this.edges[node][otherNode];
-    delete this.edges[otherNode][node];
+    //if(node != otherNode){
+      delete this.edges[node][otherNode];
+      delete this.edges[otherNode][node];
+    //}
   }
   delete this.storage[node];
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode) {
-  return this.edges[fromNode][toNode];
+  return Boolean(this.edges[fromNode][toNode]);
 };
 
 // Connects two nodes in a graph by adding an edge between them.
