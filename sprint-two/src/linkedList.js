@@ -22,15 +22,18 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-
+  //returns true if target is found in the list, or false if not items are the target
   //iterate over the object, starting from the head
+
+  let node = list.head;
+
   while (true) {
-    let val = list.value
+    let val = node.value
     if (val === target) {
       return true;
     }
-    let list = list.head.next;
-    if (list === null){
+    node = node.next;
+    if (node === null){
       break;
     }
   }
