@@ -24,13 +24,14 @@ var LinkedList = function() {
   list.contains = function(target) {
 
   //iterate over the object
-  var listItem = list;
-  while (listItem !== null) {
-    if (list.value === target) {
-      return true;
-      l
-    }
-  }
+  var start = list.head;
+
+  // while (listItem !== null) {
+  //   if (list.value === target) {
+  //     return true;
+  //     l
+  //   }
+  // }
   return false;
   };
 
