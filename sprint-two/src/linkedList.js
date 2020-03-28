@@ -23,6 +23,7 @@ var LinkedList = function() {
 
   list.contains = function(target) {
 
+<<<<<<< HEAD
   //iterate over the object
   var start = list.head;
 
@@ -32,6 +33,19 @@ var LinkedList = function() {
   //     l
   //   }
   // }
+=======
+  //iterate over the object, starting from the head
+  while (true) {
+    let val = list.value
+    if (val === target) {
+      return true;
+    }
+    let list = list.head.next;
+    if (list === null){
+      break;
+    }
+  }
+>>>>>>> 11710555f22365e4a5ecf1a07284339162212f9f
   return false;
   };
 
