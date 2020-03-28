@@ -42,7 +42,6 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  var index = getIndexBelowMaxForKey(k, this._limit);
   var bucketArray = this._storage.get(index);
   for (var i = 0; i < bucketArray.length; i++) {
     if (bucketArray[i][0] === k) {
