@@ -22,30 +22,21 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-
-<<<<<<< HEAD
-  //iterate over the object
-  var start = list.head;
-
-  // while (listItem !== null) {
-  //   if (list.value === target) {
-  //     return true;
-  //     l
-  //   }
-  // }
-=======
+  //returns true if target is found in the list, or false if not items are the target
   //iterate over the object, starting from the head
+
+  let node = list.head;
+
   while (true) {
-    let val = list.value
+    let val = node.value
     if (val === target) {
       return true;
     }
-    let list = list.head.next;
-    if (list === null){
+    node = node.next;
+    if (node === null){
       break;
     }
   }
->>>>>>> 11710555f22365e4a5ecf1a07284339162212f9f
   return false;
   };
 
