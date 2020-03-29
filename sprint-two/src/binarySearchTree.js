@@ -20,22 +20,6 @@ BinarySearchTree.prototype.insert = function(value) {
   }
 };
 
-BinarySearchTree.prototype.insert = function (val) {
-	if (val < this.value) {
-		if (this.left === null) {
-			this.left = new BinarySearchTree(val);
-		} else {
-			this.left.insert(val);
-		}
-	} else {
-		if (this.right === null) {
-			this.right = new BinarySearchTree(val);
-		} else {
-			this.right.insert(val);
-		}
-	}
-};
-
 BinarySearchTree.prototype.contains = function(val) {
 //I could not figure out how to implement a while loop or do proper recursion here
 //so I built a helper function and treated it like the DOM tree
@@ -79,4 +63,7 @@ BinarySearchTree.prototype.depthFirstLog = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+insert: best: O(log n), Worst: O(n)
+contains: best: O(log n), Worst: O(n)
+depthFirstLog: O(n)
  */
