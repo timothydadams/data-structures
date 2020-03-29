@@ -42,6 +42,7 @@ BinarySearchTree.prototype.insert = function (val) {
 BinarySearchTree.prototype.contains = function(val) {
 //I could not figure out how to implement a while loop or do proper recursion here
 //so I built a helper function and treated it like the DOM tree
+//potential ideas for future refactoring: remove inner function
 
 	var isPresent = false;
 	//implement a search function that looks at each node value in the BST
@@ -62,28 +63,6 @@ BinarySearchTree.prototype.contains = function(val) {
 
 	return isPresent;
 
- /* LOGIC FROM PAST ATTEMPTS
-
-	if (val === this.value) {
-		return true;
-	}
-	console.log(this.left.value);
-	if (val < this.value) {
-		if (this.left !== null) {
-			this.left.contains(val);
-		} else if (this.left === null){
-			return false;
-		}
-	}
-
-	if (val > this.value) {
-		if (this.right !== null) {
-			this.right.contains(val);
-		} else if (this.right === null) {
-			return false;
-		}
-	}
-*/
 };
 
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
