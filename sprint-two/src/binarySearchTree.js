@@ -34,7 +34,6 @@ BinarySearchTree.prototype.contains = function(val) {
 		if (val < node.value && node.left !== null) {
 			search(node.left);
 		}
-
 		if (val > node.value && node.right !== null) {
 			search(node.right);
 		}
@@ -68,7 +67,19 @@ BinarySearchTree.prototype.contains = function(val) {
 */
 };
 
-BinarySearchTree.prototype.depthFirstLog = function() {
+BinarySearchTree.prototype.depthFirstLog = function(cb) {
+	//implement a search function that looks at each node value in the BST
+	function executeCB(node) {
+		//console.log(node);
+    cb(node.value);
+		if (node.left !== null){
+			executeCB(node.left);
+		}
+		if (node.right !== null) {
+			executeCB(node.right);
+		}
+	}
+	executeCB(this);
 };
 
 /*
